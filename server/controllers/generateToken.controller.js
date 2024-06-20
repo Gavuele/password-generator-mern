@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -17,10 +16,9 @@ const generatePass = () => {
 
 const generateToken = (req, res) => {
     const password = generatePass()
-    const hashedPassword = bcrypt.hashSync(password, 10)
-    const token = jwt.sign({ password: hashedPassword }, process.env.JWT_SECRET,  { expiresIn: '1h' })
-    const slimToken = token.slice(70, 90) // Отображаем числа токена от 40 до 60
-    const slimToken2 = token.slice(90, 110)
+    const token = jwt.sign({ password }, process.env.JWT_SECRET,  { expiresIn: '1h' })
+    const slimToken = token.slice(110, 130) // Отображаем числа токена от 40 до 60
+    const slimToken2 = token.slice(130, 150)
     res.json({ password, token, slimToken, slimToken2 })
 }
 
