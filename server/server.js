@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-dotenv.config()
+
 
 const cors = require('cors')
 
@@ -8,8 +8,9 @@ const generateTokenRoute = require('./routes/generateToken.route')
 
 const app = express()
 app.use(cors())
+dotenv.config()
 
-const PORT = 7000
+const PORT = 5000
 
 app.use('/api', generateTokenRoute)
 
