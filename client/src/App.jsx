@@ -8,7 +8,7 @@ const App = () => {
   const [slimToken2, setSlimToken2] = useState('')
 
   const generatePassword = () => {
-    axios.get('https://password-generator-mern-backend.onrender.com/api/generate-token')
+    axios.get('https://password-generator-mern.onrender.com/api/generate-token')
       .then(response => {
         const { password, token, slimToken, slimToken2 } = response.data
         setPassword(password)

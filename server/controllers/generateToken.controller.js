@@ -13,11 +13,10 @@ const generatePass = () => {
 }
 
 // Генерация токена
-
 const generateToken = (req, res) => {
     const password = generatePass()
     const token = jwt.sign({ password }, process.env.JWT_SECRET,  { expiresIn: '1h' })
-    const slimToken = token.slice(110, 130) // Отображаем числа токена от 40 до 60
+    const slimToken = token.slice(110, 130) // Отображаем числа токена от 110 до 130
     const slimToken2 = token.slice(130, 150)
     res.json({ password, token, slimToken, slimToken2 })
 }
